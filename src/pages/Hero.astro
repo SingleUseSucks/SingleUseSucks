@@ -1,7 +1,30 @@
-<section class="bg-[url(/png/bg-top.png)] relative w-full h-screen overflow-hidden flex justify-center items-center">
-    <h1 id="layer" class="text-white relative text-[150px] md:text-[200px]" data-speed="5">
-        Hello!
-    </h1>
+---
+import Button from "../components/Button.astro"
+---
+<section class="bg-[url(/png/bg-top.png)] relative w-full min-h-screen flex flex-col justify-center items-center">
+    <!-- Flex container for the cloud images and the heading -->
+    <div class="flex justify-center items-center relative w-full">
+        <!-- Cloud image on the left -->
+        <img id="layer" src="/png/cloud.png" alt="cloud" data-speed="1" class="mr-4" />
+        
+        <!-- Main Heading -->
+        <h1 id="layer" class="text-black text-center relative text-[20px] md:text-[50px]" data-speed="3">
+            12 million tonnes of plastic finds its way into the ocean every single year
+        </h1>
+        
+        <!-- Cloud image on the right -->
+        <img id="layer" src="/png/cloud.png" alt="cloud" data-speed="1" class="ml-4" />
+    </div>
+
+    <!-- Subheading text -->
+    <div id="layer"  class="flex justify-center items-center m-5 mt-10" data-speed="1">
+        <h2 class="text-black text-center">You can change that</h2>
+    </div>
+
+    <!-- Button -->
+    <div id="layer"  class="flex justify-center items-center mt-4" data-speed="1">
+        <Button title="Dive In"></Button>
+    </div>
 </section>
 
 <script>
