@@ -1,0 +1,22 @@
+<section class="bg-[url(/png/bg-top.png)] relative w-full h-screen overflow-hidden flex justify-center items-center">
+    <h1 id="layer" class="text-white relative text-[150px] md:text-[200px]" data-speed="5">
+        Hello!
+    </h1>
+</section>
+
+<script>
+    document.addEventListener("mousemove", parallax);
+
+    function parallax(e) {
+        document.querySelectorAll("#layer").forEach(layer => {
+            const speed = Number(layer.getAttribute("data-speed")); // Convert to number
+
+            if (!isNaN(speed)) { // Ensure speed is a valid number
+                const x = (window.innerWidth / 2 - e.clientX * speed) / 100;
+                const y = (window.innerHeight / 2 - e.clientY * speed) / 100;
+
+                (layer as HTMLElement).style.transform = `translateX(${x}px) translateY(${y}px)`;
+            }
+        });
+    }
+</script>
