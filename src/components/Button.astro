@@ -1,5 +1,7 @@
 ---
+// Button.astro
+const { title } = Astro.props;
 ---
 <div>
-    <button class="border-2 border-black"><slot /></button>
+    <a class="border-solid py-3 px-6 text-white border-[#FF0755]" href="" style="background-color: #FF0755; border-radius: 25px;">{title}</a>
 </div>
