@@ -1,4 +1,5 @@
 ---
+import Horizontal from "../components/Horizontal.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "./Hero.astro";
 ---
@@ -7,4 +8,17 @@ import Hero from "./Hero.astro";
  <Hero>
  </Hero>
 
+ <div class="flex items-center h-screen w-full bg-cover bg-center sticky top-0" style="background-image: url('png/underwater.png')" >
+    <h2 class="w-3/4 lg:w-1/4 lg:ml-64 p-10 bg-slate-50 text-xl stickyparallax1">PIGGY PIGGY</h2>
+    <p class="w-3/4 lg:w-1/4 lg:ml-64 p-10 bg-slate-50 text-xl stickyparallax1">Plastic pollution has become one of the most pressing environmental issues, as rapidly increasing production of disposable plastic products  overwhelms the world’s ability to deal with them. Plastic pollution is  most visible in developing Asian and African nations, where garbage  collection systems are often inefficient or nonexistent. But the  developed world, especially in countries with low recycling rates, also has trouble properly collecting discarded plastics. Plastic trash has become so ubiquitous it has prompted efforts to write a global treaty negotiated by the United Nations.</p>
+
+</div>
+
 </MainLayout>
+
+
+<script src="https://unpkg.com/motion">
+    	scroll(animate(".stickyparallax1", { y: [-300, 0] }), {
+		target: document.querySelector(".stickyparallax1"),
+	});
+</script>
