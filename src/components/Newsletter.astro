@@ -4,8 +4,8 @@ import Button from "./Button.astro"
 
 
 <div class="relative">
-    <img class="w-[250px] h-auto absolute top-15 right-10" src="png/decoration-trash.png" alt="bubble1">
-    <img class="w-[250px] h-auto absolute top-20 left-10" src="png/decoration-bags.png" alt="bubble2">
+    <img class="animation1 scale-x-[-1] w-[250px] h-auto absolute top-10 right-20" src="png/decoration-trash.png" alt="bubble1">
+    <img class="animation2 w-[250px] h-auto absolute top-20 left-20" src="png/decoration-bags.png" alt="bubble2">
 </div>
 <section class="px-80 py-16">
 <div>
@@ -25,3 +25,58 @@ Every small step counts—together, we can make a difference!</p>
         </a>
     </div>
 </section>
+
+<script>
+
+import { inView } from "motion";
+
+const animation1 = document.querySelector(".animation1");
+const animation2 = document.querySelector(".animation2");
+
+inView(animation1, (element) => {
+  // When the element comes into view, add the "slideInRight" animation
+  element.classList.add(
+    "animate__animated",
+    "animate__fadeInUp",
+    "animate__delay-0.4s"
+  );
+
+  // When the element leaves the view, we add a "fadeOut" animation
+  return () => {
+    element.classList.remove(
+      "animate__fadeInUp", 
+      "animate__delay-0.5s"
+    );
+    element.classList.add(
+      "animate__animated",
+      "animate__fadeInDown",
+      "animate__delay-0.5s"
+    );
+  };
+});
+
+inView(animation2, (element) => {
+  // When the element comes into view, add the "slideInRight" animation
+  element.classList.add(
+    "animate__animated",
+    "animate__fadeInUp",
+    "animate__delay-0.3s"
+  );
+
+  // When the element leaves the view, we add a "fadeOut" animation
+  return () => {
+    element.classList.remove(
+      "animate__fadeInUp", 
+      "animate__delay-0.5s"
+    );
+    element.classList.add(
+      "animate__animated",
+      "animate__fadeInDown",
+      "animate__delay-0.5s"
+    );
+  };
+});
+
+
+</script>
+
