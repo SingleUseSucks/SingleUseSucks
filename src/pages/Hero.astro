@@ -1,19 +1,19 @@
 ---
 import Button from "../components/Button.astro"
 ---
-<section class="relative w-full min-h-screen flex flex-col justify-center items-center">
+<section class="mt-20 relative w-full min-h-screen flex flex-col justify-center items-center">
     <!-- Flex container for the cloud images and the heading -->
     <div class="flex justify-center items-center relative w-full">
         <!-- Cloud image on the left -->
-        <img id="layer" src="/png/cloud-toon.png" alt="cloud" data-speed="1" class="mr-4" />
+        <img id="layer" src="/png/cloud-toon.png" alt="cloud" data-speed="1" class="mr-1" />
         
         <!-- Main Heading -->
-        <h1 id="layer" class="font-abel text-black text-center relative text-[20px] md:text-[50px]" data-speed="3">
+        <h1 id="layer" class="px-20 font-abel text-black text-center relative text-[20px] md:text-[50px]" data-speed="3">
             12 million tonnes of plastic finds its way into the ocean every single year
         </h1>
         
         <!-- Cloud image on the right -->
-        <img id="layer" src="/png/cloud-toon.png" alt="cloud" data-speed="1" class="ml-4" />
+        <img id="layer" src="/png/cloud-toon.png" alt="cloud" data-speed="1" class="ml-1" />
     </div>
 
     <!-- Subheading text -->
@@ -25,11 +25,12 @@ import Button from "../components/Button.astro"
     <div id="layer"  class="flex justify-center items-center mt-4" data-speed="1">
         <Button title="DIVE IN" href="#donate"></Button>
     </div>
-    <img class="object-fit w-full pt-16" src="png/waves.svg" alt="waves">
+    <img id="waves" class="object-fit w-full pt-16" src="png/waves.svg" alt="waves">
 </section>
 
 <script>
     document.addEventListener("mousemove", parallax);
+    window.addEventListener("scroll", parallaxScroll);
 
     function parallax(e) {
         document.querySelectorAll("#layer").forEach(layer => {
@@ -43,6 +44,13 @@ import Button from "../components/Button.astro"
             }
         });
     }
+
+    function parallaxScroll() {
+        const waves = document.getElementById("waves");
+        if (waves) {
+            const scrollSpeed = 0.3;  // Adjust this value to control the scroll speed
+            const scrollY = window.scrollY;
+            waves.style.transform = `translateY(${scrollY * scrollSpeed}px)`;
+        }
+    }
 </script>
-
-
