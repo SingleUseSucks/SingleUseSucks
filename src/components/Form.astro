@@ -6,8 +6,8 @@ import Button from "./Button.astro"
 one step at a time</h2>
 
 <div>
-<img class="w-[250px] h-auto absolute top-30 left-20" src="png/decoration-recycle.png" alt="bubble2">
-<img class="w-[250px] h-auto absolute top-70 right-20" src="png/decoration-bin.png" alt="bubble2">
+<img class="animation3 w-[250px] h-auto absolute top-30 left-20" src="png/decoration-recycle.png" alt="bubble2">
+<img class="animation4 w-[250px] h-auto absolute top-70 right-20" src="png/decoration-bin.png" alt="bubble2">
 </div>
 
 <form class="font-abel p-6  mt-6 w-80">
@@ -26,3 +26,53 @@ one step at a time</h2>
             </div>
             <div class="pt-16"><Button title="MAKE A DIFFERENCE"></Button></div>
             </section>
+<script>
+import { inView } from "motion";
+
+const animation3 = document.querySelector(".animation3");
+const animation4 = document.querySelector(".animation4");
+
+inView(animation3, (element) => {
+  // When the element comes into view, add the "slideInRight" animation
+  element.classList.add(
+    "animate__animated",
+    "animate__fadeInLeft",
+    "animate__delay-0.4s"
+  );
+
+  // When the element leaves the view, we add a "fadeOut" animation
+  return () => {
+    element.classList.remove(
+      "animate__fadeInLeft", 
+      "animate__delay-0.5s"
+    );
+    element.classList.add(
+      "animate__animated",
+      "animate__fadeInDown",
+      "animate__delay-0.5s"
+    );
+  };
+});
+
+inView(animation4, (element) => {
+  // When the element comes into view, add the "slideInRight" animation
+  element.classList.add(
+    "animate__animated",
+    "animate__fadeInRight",
+    "animate__delay-0.3s"
+  );
+
+  // When the element leaves the view, we add a "fadeOut" animation
+  return () => {
+    element.classList.remove(
+      "animate__fadeInRight", 
+      "animate__delay-0.5s"
+    );
+    element.classList.add(
+      "animate__animated",
+      "animate__fadeInDown",
+      "animate__delay-0.5s"
+    );
+  };
+});
+</script>
