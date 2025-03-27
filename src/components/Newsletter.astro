@@ -2,7 +2,7 @@
 import Button from "./Button.astro"
 ---
 
-
+<img id="seabed" class="object-fit w-full" src="png/footer.svg" alt=""> 
 <div class="relative">
     <img class="animation1 scale-x-[-1] w-[250px] h-auto absolute top-10 right-20" src="png/decoration-trash.png" alt="bubble1">
     <img class="animation2 w-[250px] h-auto absolute top-20 left-20" src="png/decoration-bags.png" alt="bubble2">
@@ -27,7 +27,16 @@ Every small step counts—together, we can make a difference!</p>
 </section>
 
 <script>
+    window.addEventListener("scroll", parallaxScroll);
 
+    function parallaxScroll() {
+        const seabed = document.getElementById("seabed");
+        if (seabed) {
+            const scrollSpeed = -0.03;  // Adjust this value to control the scroll speed
+            const scrollY = window.scrollY;
+            seabed.style.transform = `translateY(${scrollY * scrollSpeed}px)`;
+        }
+    }
 import { inView } from "motion";
 
 const animation1 = document.querySelector(".animation1");
@@ -40,6 +49,7 @@ inView(animation1, (element) => {
     "animate__fadeInUp",
     "animate__delay-0.4s"
   );
+
 
   // When the element leaves the view, we add a "fadeOut" animation
   return () => {
@@ -76,7 +86,5 @@ inView(animation2, (element) => {
     );
   };
 });
-
-
 </script>
 
